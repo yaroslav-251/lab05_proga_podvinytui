@@ -26,19 +26,46 @@
 //     i++;
 // }
 
-Console.WriteLine();
-Console.WriteLine("валидация через while");
-bool isValid = false;
-int enteredAge = 0;
+// Console.WriteLine();
+// Console.WriteLine("валидация через while");
+// bool isValid = false;
+// int enteredAge = 0;
 
-while (!isValid)
-{
-    Console.WriteLine("Введите ваш возраст (целое число): ");
-    string input = Console.ReadLine();
-    isValid = int.TryParse(input, out enteredAge);
-    if (!isValid)
-    {
-        Console.WriteLine("Это не похоже на целое число. Попробуйте еще раз.");
-    }
-}
-Console.WriteLine($"принято! Ваш возраст: {enteredAge}");
+// while (!isValid)
+// {
+//     Console.WriteLine("Введите ваш возраст (целое число): ");
+//     string input = Console.ReadLine();
+//     isValid = int.TryParse(input, out enteredAge);
+//     if (!isValid)
+//     {
+//         Console.WriteLine("Это не похоже на целое число. Попробуйте еще раз.");
+//     }
+// }
+// Console.WriteLine($"принято! Ваш возраст: {enteredAge}");
+// Console.WriteLine();
+// Console.WriteLine("меню (без выхода, один проход)");
+// string menuChoice;
+// do
+// {
+//     Console.WriteLine("1 - показать дату");
+//     Console.WriteLine("2 - Показать приветствие");
+//     Console.WriteLine("0 - выход");
+//     Console.WriteLine("Выберите пункт: ");
+//     menuChoice = Console.ReadLine();
+//     switch (menuChoice)
+//     {
+//         case "1":
+//             Console.WriteLine($"Сегодня: {DateTime.Now:dd.MM.yyyy}");
+//             break;
+//         case "2":
+//             Console.WriteLine("Здравствуйте! Рады видеть вас снова.");
+//             break;
+//         case "0":
+//             Console.WriteLine("До свидания");
+//             break;
+//         default:
+//             Console.WriteLine("Такого пункта нет, попробуйте снова.");
+//             break;
+//     }
+// }
+// while (menuChoice != "0");
