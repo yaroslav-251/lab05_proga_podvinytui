@@ -69,3 +69,20 @@
 //     }
 // }
 // while (menuChoice != "0");
+Console.WriteLine("Прямой счёт");
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine(i);
+}
+Console.WriteLine();
+Console.WriteLine("Обртный отсчет");
+for (int i = 5; i >= 1; i--)
+{
+    Console.WriteLine(i);
+}
+Console.WriteLine();
+Console.WriteLine("Четные числа от 0 до 20");
+for (int i = 0; i <= 20; i += 2)
+{
+    Console.WriteLine($"{i}");
+}
