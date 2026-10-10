@@ -105,35 +105,103 @@
 //     }
 // }
 // Console.WriteLine($"гласных букв в предложении: {vowelCount}");
-Console.WriteLine("Таблица умножения 1-9");
-for (int row = 1; row <= 9; row++)
+// Console.WriteLine("Таблица умножения 1-9");
+// for (int row = 1; row <= 9; row++)
+// {
+//     for (int col = 1; col <= 9; col++)
+//     {
+//         Console.WriteLine($"{row * col}");
+//     }
+//     Console.WriteLine();
+// }
+// Console.WriteLine("треугольник");
+// for (int row = 1; row <= 5; row++)
+// {
+//     for (int col = 1; col <= row; col++)
+//     {
+//         Console.Write("*");
+//     }
+//     Console.WriteLine();
+// }
+// Console.WriteLine();
+// Console.WriteLine("break прерывает только внутренний цикл");
+// for (int row = 1; row <= 3; row++)
+// {
+//     Console.WriteLine($"Внешняя итерация: {row}");
+//     for (int col = 1; col <= 5; col++)
+//     {
+//         if (col == 3)
+//         {
+//             break;
+//         }
+//         Console.WriteLine($"Внутренняя итерация: {col}");
+//     }
+// }
+string menuChoice;
+string sentence;
+do
 {
-    for (int col = 1; col <= 9; col++)
+    Console.WriteLine("1 - Проанализировать предложение");
+    Console.WriteLine("2 - Найти позицию первой заглавной буквы");
+    Console.WriteLine("0 - Выход");
+    Console.Write("Выберите пункт:");
+    menuChoice = Console.ReadLine();
+    switch (menuChoice)
     {
-        Console.WriteLine($"{row * col}");
-    }
-    Console.WriteLine();
-}
-Console.WriteLine("треугольник");
-for (int row = 1; row <= 5; row++)
-{
-    for (int col = 1; col <= row; col++)
-    {
-        Console.Write("*");
-    }
-    Console.WriteLine();
-}
-Console.WriteLine();
-Console.WriteLine("break прерывает только внутренний цикл");
-for (int row = 1; row <= 3; row++)
-{
-    Console.WriteLine($"Внешняя итерация: {row}");
-    for (int col = 1; col <= 5; col++)
-    {
-        if (col == 3)
-        {
+        case "1":
+            Console.Write("Введите предложение");
+            sentence = Console.ReadLine();
+            string vowels = "аеёиоуыэюяАЕЁИОУЫЭЮЯ";
+            string consonants = "бвгджзйклмнпрстфхцчшщБВГДЖЗЙКЛМНПРСТФХЦЧШЩ";
+            int vowelCount = 0;
+            int consonantCount = 0;
+            int spaceCount = 0;
+            foreach (char letter in sentence)
+            {
+                if (letter == ' ')
+                {
+                    spaceCount++;
+                    continue;
+                }
+                if (vowels.Contains(letter))
+                {
+                    vowelCount++;
+                }
+                else if (consonants.Contains(letter))
+                {
+                    consonantCount++;
+                }
+            }
+            Console.WriteLine($"Всего символов: {sentence.Length}");
+            Console.WriteLine($"Гласных: {vowelCount}");
+            Console.WriteLine($"Согласных: {consonantCount}");
+            Console.WriteLine($"Пробелов: {spaceCount}");
             break;
-        }
-        Console.WriteLine($"Внутренняя итерация: {col}");
+        case "2":
+            Console.Write("Введите предложение: ");
+            sentence = Console.ReadLine();
+            bool found = false;
+            for (int i = 0; i < sentence.Length; i++)
+            {
+                if (char.IsUpper(sentence[i]))
+                {
+                    Console.WriteLine($"Первая заглавная буква: '{sentence[i]}' на позиции {i}");
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                Console.WriteLine("Заглавных букв нет");
+            }
+            break;
+        case "0":
+            Console.WriteLine("До свидания !");
+            break;
+        default:
+            Console.WriteLine("Такого пункта нет, попробуйте снова.");
+            break;
     }
+    Console.WriteLine();
 }
+while (menuChoice != "0");
